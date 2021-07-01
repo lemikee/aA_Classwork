@@ -35,4 +35,29 @@ class WordChainer
 
     adjacent_words
   end
+
+  def explore_current_words
+    new_current_words = []
+    @current_words.each do |current_word|
+      adjacent_words(current_word).each do |adjacent_word|
+        next if @all_seen_words.key?(adjacent_word)
+
+        new_current_words << adjacent_word
+        @all_seen_words[adjacent_word] = current_word
+      end
+    end
+
+    @current_words = new_current_words
+  end
+
+  def build_path(target)
+    path = []
+    current_word = target
+    until current_word.nil?
+      path << current_word
+      current_word = @all_seen_words[current_word]
+    end
+
+    path.reverse
+  end
 end
