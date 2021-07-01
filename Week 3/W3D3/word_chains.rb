@@ -17,4 +17,22 @@ class WordChainer
 
     build_path(target)
   end
+
+  def adjacent_words(word)
+    adjacent_words = []
+
+    word.each_char.with_index do |old_letter, i|
+      ('a'..'z').each do |new_letter|
+
+        next if old_letter == new_letter
+
+        new_word = word.dup
+        new_word[i] = new_letter
+
+        adjacent_words << new_word if dictionary.include?(new_word)
+      end
+    end
+
+    adjacent_words
+  end
 end
