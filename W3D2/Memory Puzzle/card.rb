@@ -6,13 +6,33 @@ class Card
     # some code
     #  return the instance at the end, but you have to call Card.new, because we are creating a specific instance of the class
 
-    def self.assign
+    def self.assign(pairs)
         #we're going to get value from CARD_VALUES, and then use it to create a card instance
-        Card.new(CARD_VALUES.sample)
+        card = CARD_VALUES.shuffle.take(pairs) * 2 #[A, B, C, D] if pairs==4
+        card.map { |value| Card.new(value) }
     end
 
     def initialize(value, face=false)
         @value = value
         @face = face
     end
+
+    #to_s is a method that converts something object to string form, devs expect you to have it, because they might invoke it
+
+    def hide
+        @face = false
+    end
+
+    def reveal
+        @face = true
+    end
+
+    def to_s
+        @face ? self.value.to_s : ""
+    end
+
+    def ==(card)
+        self.value == card.value
+    end
+
 end
