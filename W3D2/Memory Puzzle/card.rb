@@ -14,7 +14,7 @@ class Card
 
     attr_reader :value, :face
 
-    def initialize(value, face=false)
+    def initialize(value, face = true)
         @value = value
         @face = face
     end
