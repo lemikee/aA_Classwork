@@ -12,6 +12,8 @@ class Card
         card.map { |value| Card.new(value) }
     end
 
+    attr_reader :value, :face
+
     def initialize(value, face=false)
         @value = value
         @face = face
