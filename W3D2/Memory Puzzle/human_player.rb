@@ -2,18 +2,14 @@
 
 
 class HumanPlayer
-    @@INVALID_INPUT_COUNTER = 0
+    attr_accessor :invalid_move_counter
 
-    def self.increment_counter
-        @@INVALID_INPUT_COUNTER += 1
-    end
-
-    def self.reset_counter
-        @@INVALID_INPUT_COUNTER = 0
+    def initialize
+        @invalid_move_counter = 0
     end
 
     def get_input
-        puts "Enter a position in format '0 3' (or 'q' to exit the game)" if @@INVALID_INPUT_COUNTER == 0
+        puts "Enter a position in format '0 3' (or 'q' to exit the game)" if invalid_move_counter == 0
         move = gets.chomp
         num_of_integers = move.count('0123456789')
 
@@ -23,12 +19,12 @@ class HumanPlayer
         valid_range = formatted_move.all? { |num| num.between?(0, 3) }
 
         if formatted_move.length != 2 || num_of_integers != 2 || !valid_range
-            HumanPlayer.increment_counter
+            self.invalid_move_counter += 1
             puts "Invalid format. Please try again below."
 
             get_input
         else
-            HumanPlayer.reset_counter
+            self.invalid_move_counter = 0
             formatted_move
         end
     end
