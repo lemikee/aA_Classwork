@@ -8,13 +8,14 @@ class Card
 
     def self.assign(pairs)
         #we're going to get value from CARD_VALUES, and then use it to create a card instance
-        card = CARD_VALUES.shuffle.take(pairs) * 2 #[A, B, C, D] if pairs==4
-        card.map { |value| Card.new(value) }
+        cards = CARD_VALUES.shuffle.take(pairs) * 2 #[A, B, C, D] if pairs==4
+        cards.map { |value| Card.new(value) }
     end
 
-    attr_reader :value, :face
+    attr_reader :value
+    attr_accessor :face
 
-    def initialize(value, face = true)
+    def initialize(value, face = false)
         @value = value
         @face = face
     end
@@ -30,11 +31,11 @@ class Card
     end
 
     def to_s
-        @face ? self.value.to_s : ""
+        @face ? self.value.to_s : " "
     end
 
     def ==(card)
-        self.value == card.value
+        card.is_a?(Card.class) && self.value == card.value
     end
 
 end

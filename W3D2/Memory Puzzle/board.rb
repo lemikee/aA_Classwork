@@ -2,14 +2,14 @@ require_relative "./card.rb"
 
 class Board
     attr_reader :size
-    def initialize(size=4)
-        @grid = Array.new(size) { Array.new(size, "") }
+    def initialize(size)
+        @grid = Array.new(size) { Array.new(size) }
         @size = size
         populate
     end
 
     def [](pos)
-        row, col= pos
+        row, col = pos
         @grid[row][col]
     end
 
@@ -42,10 +42,8 @@ class Board
     end
 
     def render
+        system("clear")
         puts "  #{(0...size).to_a.join(" ")}"
         @grid.each_with_index { |row, i| puts "#{i} #{row.join(" ")}" }
     end
 end
-
-b = Board.new
-b.render
