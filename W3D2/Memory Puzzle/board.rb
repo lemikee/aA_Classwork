@@ -4,7 +4,7 @@ class Board
     attr_reader :size, :grid
     attr_accessor :round
     def initialize(size)
-        @grid = Array.new(size) { Array.new(size) }
+        @grid = Array.new(size) { Array.new(size, " ") }
         @size = size
         @round = 1
         self.populate
@@ -34,13 +34,6 @@ class Board
                 end
             end
          end
-
-        # (0...@grid.length).each do |i|
-        #     (0...@grid.length).each do |j|
-        #         pos = [i, j]
-        #         self[pos] = deck.shift
-        #     end
-        # end
     end
 
     def won?
@@ -70,7 +63,3 @@ class Board
         puts
     end
 end
-
-# b = Board.new(3)
-
-# puts b.grid
