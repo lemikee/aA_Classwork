@@ -21,7 +21,7 @@ class PolyTreeNode
     end
 
     def remove_child(node)
-        self.children.include?(node) ? (node.parent) = nil : (raise "Child does not exist")
+        self.children.include?(node) ? (node.parent = nil) : (raise "Child does not exist")
     end
 
     def dfs(target)
@@ -30,6 +30,17 @@ class PolyTreeNode
             child_dfs = child.dfs(target)
             return child_dfs unless child_dfs.nil?
         end
+        nil
+    end
+
+    def bfs(target)
+        queue = [self]
+        until queue.empty?
+            current = queue.pop
+            return current if current.value == target
+            current.children.each { |child| queue.unshift(child) }
+        end
+
         nil
     end
 end
