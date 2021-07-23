@@ -21,6 +21,23 @@ class KnightPathFinder
         build_move_tree
     end
 
+    def self.valid_moves(move)
+        POSSIBLE_MOVES.each do |move|
+        new_x = root_node[0] + move[0]
+        new_y = root_node[1] + move[1]
+
+        next unless new_x.between?(0, 7) && new_y.between?(0, 7) # checks to see if coordinate are in valid range of the 8 x 8 grid
+
+         unless root_node.parent.nil?
+                next if parent.value = [new_x, new_y] # to check if new potential node is NOT the same as the parent
+
+        end
+
+        new_node = PolyTreeNode.new([new_x, new_y])
+        move_tree << new_node
+        end
+    end
+
     def build_move_tree
         POSSIBLE_MOVES.each do |move|
             new_x = root_node[0] + move[0]
@@ -32,7 +49,7 @@ class KnightPathFinder
                 next if parent.value = [new_x, new_y] # to check if new potential node is NOT the same as the parent
 
             end
-            
+
             new_node = PolyTreeNode.new([new_x, new_y])
             move_tree << new_node
         end
