@@ -21,6 +21,15 @@ class PolyTreeNode
     end
 
     def remove_child(node)
-        self.children.include?(node) ? (node.parent = nil) : (raise "Child does not exist")
+        self.children.include?(node) ? (node.parent) = nil : (raise "Child does not exist")
+    end
+
+    def dfs(target)
+        return self if target == self.value
+        self.children.each do |child|
+            child_dfs = child.dfs(target)
+            return child_dfs unless child_dfs.nil?
+        end
+        nil
     end
 end
