@@ -1,0 +1,123 @@
+<html>
+<head>
+    <title>The World's Most Average Shakshuka Recipe</title> <!-- Browser tab title -->
+    <meta name="description" content="The best, simple recipe for delicious Middle Eastern Shakshuka, a cumin spiced tomato sauce with sautéd onions and chili peppers topped with poached eggs. ">
+    <meta charset="utf-8">
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+    <link rel="stylesheet" href="https://assets.aaonline.io/fullstack/html-css/assets/css_reset.css" type="text/css">
+    <script type="text/javascript" src="https://assets.aaonline.io/fullstack/html-css/assets/external_javascript_example.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Appacademylogo.png" alt="app-academy-logo" />
+        <nav>
+            <ul>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#ingredients">Ingredients</a></li>
+                <li><a href="#directions">Directions</a></li>
+            </ul>
+
+            <aside>
+                    <h2 id="ingredients">Ingredients</h2>
+
+                    <ul>
+                        <li>1 medium onion, diced</li>
+                        <li>1 red bell pepper, seeded and diced</li>
+                        <li>4 garlic cloves, finely chopped</li>
+                        <li>2 tsp paprika</li>
+                        <li>1 tsp cumin</li>
+                        <li>1/4 tsp chili powder</li>
+                        <li>1 28-ounce can whole peeled tomatoes</li>
+                        <li>6 large eggs</li>
+                        <li>salt and pepper, to taste</li>
+                        <li>1 small bunch fresh cilantro, chopped</li>
+                        <li>1 small bunch fresh parsley, chopped</li>
+                    </ul>
+            </aside>
+        </nav>
+    </header>
+
+    <section>
+        <h1>Shakshuka</h1>
+
+        <h2>A spicy and wild ride into the world of tomatos and eggs</h2>
+
+        <figure>
+        <img src="https://themovementmenu.com/wp-content/uploads/2019/02/Whole30-Shakshuka-with-Cauliflower-Rice.jpg"
+            alt="shaksuka-image" />
+        <figcaption>
+            <a href="https://en.wikipedia.org/wiki/Shakshouka">The history of shakshuka</a>
+        </figcaption>
+        </figure>
+
+        <h2 id="description">Description</h2>
+        <p>
+            Shakshukah is a dish of eggs poached in a spicy tomato sauce that is fantastic for dipping bread!
+        </p>
+
+        <h2 id="directions">Directions</h2>
+        <ol>
+            <li>Heat olive oil in a large saut&éacute pan on medium heat. Add the chopped bell pepper and onion and cook for 5 minutes or until the onion becomes translucent.</li>
+            <li>Add garlic and spices and cook an additional minute.</li>
+            <li>Pour the can of tomatoes and juice into the pan and break down the tomatoes using a large spoon. Season with salt and pepper and bring the sauce to a simmer.</li>
+            <li>Use your large spoon to make small wells in the sauce and crack the eggs into each well. Cover the pan and cook for 5-8 minutes, or until the eggs are done to your liking.</li>
+            <li>Garnish with chopped cilantro and parsley.</li>
+        </ol>
+
+
+    </section>
+
+    <section id="reviews">
+        <h2>Reviews</h2>
+            <form id="review-form" action="/reviews" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name"  name="name">
+
+                <label for="rating">Rating</label>
+                <input type="radio" name="rating" value="1" checked>
+                <input type="radio" name="rating" value="2">
+                <input type="radio" name="rating" value="3">
+                <input type="radio" name="rating" value="4">
+                <input type="radio" name="rating" value="5">
+
+                <label for="expertise-level">Cooking Expertise</label>
+                <select id="expertise-level" name="expertise">
+                    <option value="Select Cooking Expertise" disabled="true" selected="true">Select Cooking Experise</option>
+                    <option value="Sometimes Cook">Sometimes Cook</option>
+                    <option value="Cook Everyday">Cook Everyday</option>
+                    <option value="Cooking is a Hobby">Cooking is a Hobby</option>
+                    <option value="Professional Chef">Professional Chef</option>
+                </select>
+
+                <label>Review
+                    <textarea id="review" name="review" cols="30" rows="10"></textarea> <!-- where user will write review, textarea box defined by cols/rows where user can write review -->
+                </label>
+
+                <input type="submit" value="Submit Your Review">
+
+            </form>
+    </section>
+
+
+    <footer>
+        <p>Original Recipe from <a href="https://downshiftology.com/recipes/shakshuka/">Lisa Brown at DownShiftology</a></p>
+    </footer>
+</body>
+
+</html>
+
