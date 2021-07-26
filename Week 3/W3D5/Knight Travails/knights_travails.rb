@@ -33,20 +33,32 @@ class KnightPathFinder
                 next if parent.value = [new_x, new_y] # to check if new potential node is NOT the same as the parent
             end
 
-            new_node = PolyTreeNode.new([new_x, new_y])
-            valid_moves_arr << new_node
+            valid_moves_arr << [new_x, new_y]
         end
 
         valid_moves_arr
     end
 
     def build_move_tree
+        our_queue = [root_node]
 
+        until our_queue.empty?
+           current_node = our_queue.shift
+           current_node_pos = current_node.value
+
+           new_move_positions(current_node_pos).each do |new_pos|
+                new_node = PolyTreeNode.new(new_pos)
+                current_node.add_child(new_node)
+                our_queue << new_node
+           end
+        end
     end
 
     def new_move_positions(pos)
          #takes in a current pos, and then gives new possible moves
-         KnightPathFinder.valid_moves(pos).reject { |move| considered_positions.include?(move) }
+         KnightPathFinder.valid_moves(pos)
+         .reject { |move| considered_positions.include?(move) }
+         .each { |move| considered_positions << move }
     end
 
 end
