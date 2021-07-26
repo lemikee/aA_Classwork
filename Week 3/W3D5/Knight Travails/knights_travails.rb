@@ -77,7 +77,3 @@ class KnightPathFinder
         nodes
     end
 end
-
-kpf = KnightPathFinder.new([0,0])
-p kpf.find_path([7, 6])
-p kpf.find_path([6, 2])
