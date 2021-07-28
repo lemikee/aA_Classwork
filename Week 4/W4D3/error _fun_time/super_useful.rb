@@ -38,6 +38,10 @@ end
 # PHASE 4
 class BestFriend
   def initialize(name, yrs_known, fav_pastime)
+    raise 'You must be friends for at least 5 years to be best friends' if yrs_known < 5
+    raise 'Your best friend is nameless :(' if name.empty?
+    raise 'Get a hobby, dude' if fav_pastime.empty?
+
     @name = name
     @yrs_known = yrs_known
     @fav_pastime = fav_pastime
