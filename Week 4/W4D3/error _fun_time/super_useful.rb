@@ -16,6 +16,8 @@ FRUITS = ["apple", "banana", "orange"]
 def reaction(maybe_fruit)
   if FRUITS.include? maybe_fruit
     puts "OMG, thanks so much for the #{maybe_fruit}!"
+  elsif maybe_fruit == 'coffee'
+    raise UsefulError, "The friendly monster doesn't like coffee, try again."
   else
     raise StandardError
   end
