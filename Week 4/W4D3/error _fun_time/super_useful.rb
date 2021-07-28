@@ -1,6 +1,13 @@
 # PHASE 2
 def convert_to_int(str)
-  Integer(str)
+  alphabet = ('a'..'z').to_a
+  begin
+    raise UsefulError, 'Input should not contain letters.' if str.split('').any? { |char| alphabet.include?(char) }
+
+    Integer(str)
+  rescue UsefulError => e
+    puts e.message
+  end
 end
 
 # PHASE 3
