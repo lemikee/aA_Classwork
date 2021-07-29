@@ -15,18 +15,17 @@ class TowersHanoi
   end
 
   def won?
-    ""
+    stacks[-1] == (1..num_discs).to_a.reverse
   end
 
   def move
     ""
   end
 
-  def print
-
-    pp(stacks, $>, 5)
-  end
+  # def print
+  #   # pp self.stacks
+  # end
 end
 
-tower = TowersHanoi.new(3)
-p tower.print
+# tower = TowersHanoi.new(3)
+# p tower.print

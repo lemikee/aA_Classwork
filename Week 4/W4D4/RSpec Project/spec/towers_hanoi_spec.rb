@@ -21,7 +21,6 @@ describe TowersHanoi do
   end
 
   describe "#play" do
-    
     it "calls on #won?" do
       expect(tower).to receive(:won?)
       tower.play
@@ -31,5 +30,25 @@ describe TowersHanoi do
       expect(tower).to receive(:move)
       tower.play
     end
+
   end
+
+  describe "#won?" do
+    context "when all discs are in the final pile" do
+      it "should return true" do
+        expect(tower.stacks[-1]).to eq((1..tower.num_discs).to_a.reverse)
+        expect(tower.won?).to eq(true)
+      end
+    end
+
+    context "when all discs are not in the final pile" do
+      it "should return false" do
+        expect(tower.stacks[-1]).not_to eq((1..tower.num_discs).to_a.reverse)
+        expect(tower.won?).to eq(false)
+      end
+    end
+  end
+
+
+
 end
