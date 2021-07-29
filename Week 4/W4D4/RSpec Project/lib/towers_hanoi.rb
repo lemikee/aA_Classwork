@@ -1,3 +1,5 @@
+require "pp"
+
 class TowersHanoi
   attr_reader :num_discs, :stacks
 
@@ -19,4 +21,12 @@ class TowersHanoi
   def move
     ""
   end
+
+  def print
+
+    pp(stacks, $>, 5)
+  end
 end
+
+tower = TowersHanoi.new(3)
+p tower.print
