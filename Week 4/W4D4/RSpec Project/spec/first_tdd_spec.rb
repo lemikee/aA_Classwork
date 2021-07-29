@@ -31,12 +31,18 @@ describe Array do
     }
 
     it "switches the rows and columns of two-dimensional array" do
-
       expect(array.transpose).to eq(transposed)
     end
-
     it "all rows should be of equal length" do
       expect(transposed.all? { |row| row.length == transposed.first.length } ).to be true
+    end
+  end
+
+  describe "#stock_picker" do
+    # let(:prices) { [4, 6, 2, 7, 9, 1] }
+
+    it "find the most profitable pair of days to buy then sell stock" do
+      expect([4, 6, 2, 7, 9, 1].stock_picker).to eq([3, 4])
     end
   end
 end

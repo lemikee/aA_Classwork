@@ -30,4 +30,20 @@ class Array
 
     transposed
   end
+
+  def stock_picker
+    highest_profit = 0
+    best_pair = nil
+    self.each_with_index do |price1,idx1|
+      self.each_with_index do |price2, idx2|
+        if idx1 < idx2
+          profit = price2 - price1
+        else 
+          next
+        end
+        best_pair = [idx1, idx2] if profit > highest_profit
+      end
+    end
+    best_pair
+  end
 end
