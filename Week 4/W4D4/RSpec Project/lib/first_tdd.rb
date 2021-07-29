@@ -15,4 +15,19 @@ class Array
     end
     indices
   end
+
+  def transpose
+    transposed = []
+
+    (0...self.length).each do |col|
+      temp = []
+      (0...self.length).each do |row|
+        temp << self[row][col]
+      end
+
+      transposed << temp
+    end
+
+    transposed
+  end
 end

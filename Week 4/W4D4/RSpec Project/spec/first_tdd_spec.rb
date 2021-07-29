@@ -13,26 +13,30 @@ describe Array do
     end
   end
 
-  describe "#tranpose" do
+  describe "#transpose" do
     let(:array) {
       rows = [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8]
-      ] 
+      ]
     }
-    it "switches the rows and columns of two-dimensional array" do
-      let(:tranposed) {
-        rows = [
+
+    let(:transposed) {
+      [
           [0, 3, 6],
           [1, 4, 7],
           [2, 5, 8]
         ]
-      }
-      expect(array.tranpose)to eq(tranposed)
+    }
+
+    it "switches the rows and columns of two-dimensional array" do
+
+      expect(array.transpose).to eq(transposed)
     end
+
     it "all rows should be of equal length" do
-      
+      expect(transposed.all? { |row| row.length == transposed.first.length } ).to be true
     end
   end
 end
