@@ -8,10 +8,28 @@ describe TowersHanoi do
       expect(tower.num_discs).to eq(3)
     end
 
-    it "creates instance variable for stack 1" do
-      expect(tower.stack1).to eq([3, 2, 1])
+    it "creates instance variable for stacks of size 3" do
+      expect(tower.stacks).to eq( [[3, 2, 1], [], []] )
+    end
+
+    it "creates instance variable for stacks of size 5" do
+      tower5 = TowersHanoi.new(5)
+      expect(tower5.stacks).to eq( [[5, 4, 3, 2, 1], [], []] )
     end
 
     
+  end
+
+  describe "#play" do
+    
+    it "calls on #won?" do
+      expect(tower).to receive(:won?)
+      tower.play
+    end
+
+    it "calls on #move?" do
+      expect(tower).to receive(:move)
+      tower.play
+    end
   end
 end
