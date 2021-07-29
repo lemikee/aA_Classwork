@@ -27,7 +27,7 @@ class Array
 
       transposed << temp
     end
-
+    
     transposed
   end
 
@@ -38,7 +38,7 @@ class Array
       self.each_with_index do |price2, idx2|
         if idx1 < idx2
           profit = price2 - price1
-        else 
+        else
           next
         end
         best_pair = [idx1, idx2] if profit > highest_profit
