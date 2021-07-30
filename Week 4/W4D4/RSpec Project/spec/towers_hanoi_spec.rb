@@ -17,7 +17,34 @@ describe TowersHanoi do
       expect(tower5.stacks).to eq( [[5, 4, 3, 2, 1], [], []] )
     end
 
-    
+
+  end
+
+
+  describe "#won?" do
+
+
+    context "when all discs are in the final pile from largest to smallest" do
+      it "should return true" do
+        won_array = [3, 2, 1]
+
+        tower.stacks[-1] = won_array
+        expect(tower.won?).to eq(true)
+      end
+    end
+
+    context "when all discs are not in the final pile in order of largest to smallest" do
+      it "should return false" do
+        expect(tower.won?).to eq(false)
+      end
+    end
+  end
+
+  describe "#move" do
+    let(:tower_bad) { TowersHanoi.new(3) }
+    it "should raise an error if from stack is empty" do
+      expect { tower.move(1, 2) }.to raise_error("Can't move a disc from an empty stack")
+    end
   end
 
   describe "#play" do
@@ -32,23 +59,4 @@ describe TowersHanoi do
     end
 
   end
-
-  describe "#won?" do
-    context "when all discs are in the final pile" do
-      it "should return true" do
-        expect(tower.stacks[-1]).to eq((1..tower.num_discs).to_a.reverse)
-        expect(tower.won?).to eq(true)
-      end
-    end
-
-    context "when all discs are not in the final pile" do
-      it "should return false" do
-        expect(tower.stacks[-1]).not_to eq((1..tower.num_discs).to_a.reverse)
-        expect(tower.won?).to eq(false)
-      end
-    end
-  end
-
-
-
 end
