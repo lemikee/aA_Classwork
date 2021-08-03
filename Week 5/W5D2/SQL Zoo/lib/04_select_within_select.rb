@@ -8,7 +8,7 @@
 #  population  :integer
 #  gdp         :integer
 
-require_relative './sqlzoo.rb'
+require_relative './sqlzoo'
 
 # A note on subqueries: we can refer to values in the outer SELECT within the
 # inner SELECT. We can name the tables so that we can tell the difference
@@ -35,6 +35,12 @@ end
 def larger_than_russia
   # List each country name where the population is larger than 'Russia'.
   execute(<<-SQL)
+    SELECT
+      name
+    FROM
+      countries
+    WHERE
+      population > 141500000;
   SQL
 end
 
