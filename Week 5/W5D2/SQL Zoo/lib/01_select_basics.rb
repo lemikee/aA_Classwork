@@ -72,7 +72,7 @@ def scandinavia
     FROM
       countries
     WHERE
-      name IN ('Denmark','Finland', 'Norway','Sweden';
+      name IN ('Denmark','Finland', 'Norway','Sweden');
 
   SQL
 end
@@ -96,7 +96,7 @@ def just_the_right_size
   # BETWEEN allows range checking - note that it is inclusive.
   execute(<<-SQL)
     SELECT
-      name, area
+      name, area/1000 AS area_per_thousands
     FROM
       countries
     WHERE
