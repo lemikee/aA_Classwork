@@ -22,6 +22,12 @@
 
 require_relative './sqlzoo.rb'
 
+# FROM
+#   table_1
+# JOIN
+#   table_2 ON table_2_col = table_1_col
+
+
 def example_query
   execute(<<-SQL)
     SELECT
@@ -36,12 +42,25 @@ end
 def films_from_sixty_two
   # List the films where the yr is 1962 [Show id, title]
   execute(<<-SQL)
+  SELECT
+    id, title
+  FROM
+    movies
+  WHERE
+    yr = 1962;
+
   SQL
 end
 
 def year_of_kane
   # Give year of 'Citizen Kane'.
   execute(<<-SQL)
+  SELECT
+    yr
+  FROM
+    movies
+  WHERE
+    title = 'Citizen Kane'
   SQL
 end
 
@@ -50,18 +69,56 @@ def trek_films
   # these movies include the words Star Trek in the title). Order results by
   # year.
   execute(<<-SQL)
+    SELECT
+      id, title, yr
+    FROM
+      movies
+    WHERE
+      title LIKE '%Star Trek%' 
+    ORDER BY
+      yr 
   SQL
 end
+
+# == Schema Information
+#
+# Table name: actors
+#
+#  id          :integer      not null, primary key
+#  name        :string
+#
+# Table name: movies
+#
+#  id          :integer      not null, primary key
+#  title       :string
+#  yr          :integer
+#  score       :float
+#  votes       :integer
+#  director_id :integer
+#
+# Table name: castings
+#
+#  movie_id    :integer      not null, primary key
+#  actor_id    :integer      not null, primary key
+#  ord         :integer
+
 
 def films_by_id
   # What are the titles of the films with id 1119, 1595, 1768?
   execute(<<-SQL)
+    SELECT
+      title
+    FROM
+      movies
+    WHERE
+      id IN (1119, 1595, 1768);
   SQL
 end
 
 def glenn_close_id
   # What id number does the actress 'Glenn Close' have?
   execute(<<-SQL)
+  
   SQL
 end
 

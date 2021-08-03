@@ -48,13 +48,40 @@ def richer_than_england
   # Show the countries in Europe with a per capita GDP greater than
   # 'United Kingdom'.
   execute(<<-SQL)
+    SELECT
+      c1.name
+    FROM
+      countries c1
+    WHERE
+      c1.continent = 'Europe' AND (c1.gdp/c1.population) > (
+        SELECT 
+          c2.gdp/c2.population AS gdp_per_capita
+        FROM
+          countries c2
+        WHERE 
+          c2.name = 'United Kingdom'
+      );
   SQL
 end
+
 
 def neighbors_of_certain_b_countries
   # List the name and continent of countries in the continents containing
   # 'Belize', 'Belgium'.
   execute(<<-SQL)
+    SELECT
+      c1.name, c1.continent
+    FROM
+      countries c1
+    WHERE
+      c1.continent IN (
+        SELECT
+          c2.continent
+        FROM
+          countries c2
+        WHERE
+          c2.name IN ('Belize', 'Belgium')
+      );
   SQL
 end
 
@@ -62,6 +89,28 @@ def population_constraint
   # Which country has a population that is more than Canada but less than
   # Poland? Show the name and the population.
   execute(<<-SQL)
+
+  SELECT
+    c1.name, c1.population
+  FROM
+    countries c1
+  WHERE
+    c1.population > (
+      SELECT
+        c2.population
+      FROM
+        countries c2
+      WHERE
+        c2.name = 'Canada'
+    ) AND c1.population < (
+      SELECT
+        c3.population
+      FROM
+        countries c3
+      WHERE
+        c3.name = 'Poland'
+    ); 
+
   SQL
 end
 
@@ -71,5 +120,27 @@ def sparse_continents
   # population.
   # Hint: Sometimes rewording the problem can help you see the solution.
   execute(<<-SQL)
+    SELECT
+      c1.name, c1.continent, c1.population
+    FROM
+      countries c1
+    WHERE
+      c1.continent IN (
+        SELECT
+          c2.continent
+        FROM
+          countries c2
+        WHERE
+          c2.population < 25000000
+      );
   SQL
 end
+# == Schema Information
+#
+# Table name: countries
+#
+#  name        :string       not null, primary key
+#  continent   :string
+#  area        :integer
+#  population  :integer
+#  gdp         :integer
