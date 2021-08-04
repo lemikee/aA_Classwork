@@ -125,13 +125,13 @@ def sparse_continents
     FROM
       countries c1
     WHERE
-      c1.continent IN (
+      c1.continent NOT IN (
         SELECT
           c2.continent
         FROM
           countries c2
         WHERE
-          c2.population < 25000000
+          c2.population >= 25000000
       );
   SQL
 end
@@ -144,3 +144,5 @@ end
 #  area        :integer
 #  population  :integer
 #  gdp         :integer
+
+
