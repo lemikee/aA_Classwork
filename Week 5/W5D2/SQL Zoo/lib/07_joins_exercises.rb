@@ -108,7 +108,7 @@ def andrews_films_and_leads
         JOIN
           actors ON castings.actor_id = actors.id
         WHERE
-          movies.id = castings.actor_id AND name = 'Julie Andrews'
+          name = 'Julie Andrews'
         
       ) AS new_movies
     JOIN
