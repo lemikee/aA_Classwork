@@ -33,8 +33,6 @@ class Enrollment < ApplicationRecord
   # associations, just creating links between tables
     # we want to link it with the same thing, ie foreign_key
     # primary key is always id
-    #
-
 
     # create table
     #   id
