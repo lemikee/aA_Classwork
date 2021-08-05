@@ -21,13 +21,20 @@ class Course < ApplicationRecord
     foreign_key: :instructor_id,
     class_name: :User
 
-  belongs_to :prequisite,
+  belongs_to :prerequisite,
     primary_key: :id,
     foreign_key: :prereq_id,
     class_name: :Course,
-    optional: true # <-- optional because not every course needs a prereq
-
+    optional: true 
     
+  has_many :prerecs,
+    primary_key: :id,
+    foreign_key: :prereq_id,
+    class_name: :Course,
+    optional: true 
+    # <-- optional because not every course needs a prereq
 
-
+  has_many :enrolled_students,
+    through: :enrollment,
+    source: :User
 end
