@@ -14,4 +14,5 @@ class Course < ApplicationRecord
     primary_key: :id, # id of the table we are pointing to
     foreign_key: :course_id, # for this table
     class_name: :Enrollment # other table we are pointing to
+    
 end
