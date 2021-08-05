@@ -14,12 +14,12 @@ class Enrollment < ApplicationRecord
   belongs_to :user,
     primary_key: :id,
     foreign_key: :student_id,
-    class_name: :user
+    class_name: :User
 
   belongs_to :course, # method_name
     primary_key: :id, # id of the table we are pointing to
     foreign_key: :course_id, # for this table
-    class_name: :course # other table we are pointing to
+    class_name: :Course # other table we are pointing to
 
   # table / model by model
     # look for foreign keys, for each foregin key write a belongs to
