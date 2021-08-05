@@ -19,8 +19,9 @@ class Enrollment < ApplicationRecord
   belongs_to :course, # method_name
     primary_key: :id, # id of the table we are pointing to
     foreign_key: :course_id, # for this table
-    class_name: :Course # other table we are pointing to
-
+    class_name: :Course, # other table we are pointing to
+    optional: true
+  
   # table / model by model
     # look for foreign keys, for each foregin key write a belongs to
     # then immediately write has_many association
