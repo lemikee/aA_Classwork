@@ -108,7 +108,7 @@ def andrews_films_and_leads
         JOIN
           actors ON castings.actor_id = actors.id
         WHERE
-          movies.id = castings.actor_id AND name = 'Julie Andrews'
+          name = 'Julie Andrews'
         
       ) AS new_movies
     JOIN
@@ -119,8 +119,33 @@ def andrews_films_and_leads
       ord = 1;
   SQL
 end
-#  casting's actor_id contains julie andrews' id 
 
+# 2nd way
+
+# def andrews_films_and_leads
+#   execute(<<-SQL)
+#     SELECT movies.title, lead_actors.name
+#     FROM movies
+
+#     JOIN castings aS lead_castings ON lead_castings.movie_id = movies.id
+#     JOIN actors AS lead_actors oN lead_castings.actor_id = lead_actors.id
+
+#     JOIN castings AS julie_castings ON julie_castings.movie_id = movies.id 
+#     JOIN actors aS julie_actors ON julie_castings.actor_id = julie_actors.id
+
+#     WHERE lead_castings.ord = 1 AND julie_actors.name = 'Julie Andrews'
+#   SQL
+# end
+
+
+
+
+def prolific_actors
+  # Obtain a list in alphabetical order of actors who've had at least 15
+  # starring roles.
+  execute(<<-SQL)
+  SQL
+end
 
 # == Schema Information
 #
@@ -143,14 +168,6 @@ end
 #  movie_id    :integer      not null, primary key
 #  actor_id    :integer      not null, primary key
 #  ord         :integer
-
-
-def prolific_actors
-  # Obtain a list in alphabetical order of actors who've had at least 15
-  # starring roles.
-  execute(<<-SQL)
-  SQL
-end
 
 def films_by_cast_size
   # List the films released in the year 1978 ordered by the number of actors
