@@ -50,7 +50,14 @@ def most_supportive
     .select(:id, :name, 'COUNT(castings.actor_id) as roles')
     .joins(:castings)
     .where.not(castings: { ord: 1 })
-    .group(:id) # defaults to left 
+    .group(:id) # defaults to left
     .order('roles DESC')
     .limit(2)
 end
+
+:LHS
+RHS:
+
+:col_name
+'aggregate function'
+'table_name.col_name'
