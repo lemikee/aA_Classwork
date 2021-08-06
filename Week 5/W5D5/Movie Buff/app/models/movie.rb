@@ -9,7 +9,7 @@ class Movie < ApplicationRecord
     foreign_key: :movie_id,
     primary_key: :id
 
-  has_many :actors,
+  has_many :actors, # <-- joins
     through: :castings,
     source: :actor
 end
