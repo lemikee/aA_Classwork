@@ -1,13 +1,17 @@
 def what_was_that_one_with(those_actors)
   # Find the movies starring all `those_actors` (an array of actor names).
   # Show each movie's title and id.
-
-  
+  Movie
+    .select(:title, :id)
+    .joins(:actors)
+    .where(actors: { name: those_actors })
+    .group(:id)
+    .having('COUNT(actors.id) = ?', those_actors.size)
 end
 
 def golden_age
   # Find the decade with the highest average movie score.
-
+  
 end
 
 def costars(name)
