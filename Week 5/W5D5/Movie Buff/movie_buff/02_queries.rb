@@ -3,8 +3,10 @@ def eighties_b_movies
   # 3 and 5 (inclusive).
   # Show the id, title, year, and score.
   Movie
-    .select(:id, :title, :score, :yr)
-    .where(yr: 1980..1989, score: 3..5)
+    .select(:id, :title, :score)
+    .select(:yr)
+    .where(yr: 1980..1989)
+    .where(score: 3..5)
 
 end
 
@@ -47,7 +49,7 @@ def most_supportive
   # Show each actor's id, name and number of supporting roles.
 
   Actor
-    .select(:id, :name, 'COUNT(castings.actor_id) as roles')
+    .select('actors.id, actors.name, COUNT(castings.actor_id) as roles')
     .joins(:castings)
     .where.not(castings: { ord: 1 })
     .group(:id) # defaults to left
@@ -55,9 +57,9 @@ def most_supportive
     .limit(2)
 end
 
-:LHS
-RHS:
+# :LHS
+# RHS:
 
-:col_name
-'aggregate function'
-'table_name.col_name'
+# :col_name
+# 'aggregate function'
+# 'table_name.col_name'
