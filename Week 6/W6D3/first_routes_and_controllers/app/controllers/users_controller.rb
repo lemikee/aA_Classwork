@@ -26,12 +26,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by(id: params[:id])
     unless @user
-      render json: { error: 'There is no user with that id.' }
+      render json: { error: 'There is no user with that id.' }, status: 404
       return
     end
-
+    
     if @user.update(user_params)
-      redirect_to users_url(@user)
+      redirect_to users_url (@user)
     else
       render json: @user.errors.full_messages, status: 422
     end
@@ -41,7 +41,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     if @user
       @user.destroy
-      redirect_to users_url
+
+      redirect_to '/users'
     else
       render json: { error: 'There is no user with that id.' }, status: 404
     end
