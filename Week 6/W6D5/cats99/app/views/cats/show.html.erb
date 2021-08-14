@@ -1,0 +1,20 @@
+<h1>The Worlds Second Coolest Cat</h1>
+<table>
+    <thead>
+        <tr>
+            <th colspan="2">All of the Nosey Details You Wanted</th>
+        </tr>
+    </thead>
+    <% [:name, :birth_date, :sex, :description].each do |attribute| %>
+    <tr>
+      <td><%= attribute.capitalize %></td> <!-- this creates its own row!-->
+      <td><%= @cat[attribute] %></td>
+    </tr>
+    <% end %>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td><a href="<%= cats_url %>">Cat Index</a></td>
+    </tr>
+</table>

@@ -1,0 +1,17 @@
+<h1>Only Cool Cats 🐈</h1>
+<ul>
+  <% @cats.each do |cat| %>
+    <h3><%= cat.name %></h3>
+    <li><%= cat.age %></li>
+    <li><%= cat.birth_date %></li>
+    <li><%= cat.sex %></li>
+    <li><%= cat.description %></li>
+    <br>
+  <% end %>
+</ul>
+
+<!-- returning erb tags are for
+  (1) want to render stuff
+  (2) partials
+  (3) url helper
+ -->

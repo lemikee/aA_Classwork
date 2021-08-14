@@ -1,0 +1,33 @@
+<h1>Add Yet Another Cat</h1>
+<form action="<%= cats_url %>" method="POST">
+
+  <table>
+
+    <tr>
+        <th colspan="2">As if we need more cats 😒</th>
+    </tr>
+
+    <% [:name, :sex, :color, :birth_date, :description].each do |attribute| %>
+
+    <tr>
+      <td><label for="attribute"> <%= attribute.capitalize %> </label>  </td>
+      <td><input id="attribute" type="text" name="cat[attribute]" value="<%= @cat[attribute] %>"> </td> <!-- this creates its own row!-->
+    </tr>
+
+    <% end %>
+
+    <tr>
+      <td><br></td> <!-- this creates its own row! so moves button over -->
+      <td><input type="submit" value="Add Cat"></td>
+    </tr>
+
+    <tr>
+      <td><br></td>
+    </tr>
+
+  </table>
+</form>
+
+
+<a href="<%= cats_url %>">Cat Index</a>
+
