@@ -11,4 +11,35 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
   after_initialize :set_activation_token
+
+has_many :notes
+
+  def self.find_by_credentials(email, password)
+    user = User.find_by(email: email)
+    user && user.is_password?(password) ? user : nil
+  end
+
+  def set_activation_token
+    self.activation_token = generate_unique_activation_token
+  end
+
+  def password=(password)
+    @password = password
+    self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
+
+  def reset_session_token!
+    self.session_token = generate_unique_session_token
+    self.save!
+
+    self.session_token
+  end
+
+  def ensure_session_token
+    self.session_token ||= generate_unique_session_token
+  end
 end
