@@ -15,4 +15,8 @@
 #  index_goals_on_user_id  (user_id)
 #
 class Goal < ApplicationRecord
+  validates_presence_of :name, :details
+  validates :status, inclusion: { in: [true, false] }
+
+  belongs_to :user
 end
