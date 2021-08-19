@@ -1,0 +1,28 @@
+# == Schema Information
+#
+# Table name: albums
+#
+#  id         :bigint           not null, primary key
+#  live       :boolean          default(FALSE), not null
+#  name       :string           not null
+#  year       :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  band_id    :integer          not null
+#
+# Indexes
+#
+#  index_albums_on_band_id_and_name  (band_id,name) UNIQUE
+#
+
+one:
+  name: MyString
+  band_id: 1
+  year: 1
+  live: false
+
+two:
+  name: MyString
+  band_id: 1
+  year: 1
+  live: false
