@@ -365,3 +365,32 @@ Processing by StaticPagesController#index as HTML
 Completed 200 OK in 65ms (Views: 59.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2021-08-19 16:44:00 -0700
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from block (3 levels) in <class:Railtie> at /Users/mike/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.0.7.2/lib/active_record/railtie.rb:113)
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_main_nav.html.erb (11.9ms)
+  Rendered static_pages/index.html.erb within layouts/application (18.2ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing partial shared/__gear_dropdown with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/mike/Desktop/Github/aA-Classwork/Week 7/W7D4/AA Times/app/views":
+  app/views/shared/_main_nav.html.erb:25:in `_app_views_shared__main_nav_html_erb__1178888760786877432_70229126340140'
+  app/views/static_pages/index.html.erb:1:in `_app_views_static_pages_index_html_erb___3269811222231703047_70229154920240'
+
+Started POST "/__better_errors/441895ae32585678/variables" for ::1 at 2021-08-19 16:44:01 -0700
+Started GET "/" for ::1 at 2021-08-19 16:45:17 -0700
+Processing by StaticPagesController#index as HTML
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered shared/_main_nav.html.erb (0.6ms)
+  Rendered shared/_masthead.html.erb (0.5ms)
+  Rendered shared/_sections_nav.html.erb (0.7ms)
+  Rendered shared/_search_modal.html.erb (0.4ms)
+  Rendered shared/_main_content.html.erb (0.6ms)
+  Rendered static_pages/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 418ms (Views: 413.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-ff238c0fce8d388c0561d682e0d9ffaee9aacff2fda5fe7b12ca3b0f783242c6.css?body=1" for ::1 at 2021-08-19 16:45:17 -0700
