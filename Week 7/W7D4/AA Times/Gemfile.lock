@@ -192,7 +192,7 @@ GEM
     websocket-extensions (0.1.5)
 
 PLATFORMS
-  x86_64-darwin-18
+  x86_64-darwin-20
 
 DEPENDENCIES
   better_errors
@@ -217,4 +217,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.2.22
+   2.2.25
