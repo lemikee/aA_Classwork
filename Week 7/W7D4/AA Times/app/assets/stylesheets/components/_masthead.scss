@@ -36,7 +36,7 @@
 
 .masthead-links {
 	display: flex;
-	font-family: $sans-serif;
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
 	font-size: 11px;
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -59,7 +59,7 @@
 	}
 
 	a,
-	button, 
+	button,
 	time {
 		margin-right: 10px;
 	}
@@ -68,7 +68,12 @@
 		margin-right: 5px;
 	}
 
-	strong {
+	stonks {
 		color: green;
+		font-size: 16px;
+	}
+
+	coat {
+		color: orange;
 	}
 }
