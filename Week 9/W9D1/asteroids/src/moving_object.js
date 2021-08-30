@@ -28,5 +28,7 @@ MovingObject.prototype.move = function move() {
 
 
 
+
+
 module.exports = MovingObject;
 
