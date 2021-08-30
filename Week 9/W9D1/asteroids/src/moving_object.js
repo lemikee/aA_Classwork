@@ -6,6 +6,7 @@
 // });
 
 function MovingObject(options) {
+
   this.pos = options.pos;
   this.vel = options.vel;
   this.radius = options.radius;
@@ -23,8 +24,14 @@ MovingObject.prototype.draw = function draw(ctx) {
 }
 
 MovingObject.prototype.move = function move() {
-  this.pos += this.vel;
-}
+  this.pos = [
+    // this.pos[0] + (5 * Math.random()),
+    // this.pos[1] + (5 * Math.random())
+
+    this.pos[0] + this.vel[0],
+    this.pos[1] + this.vel[1]
+];
+};
 
 
 
