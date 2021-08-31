@@ -42,4 +42,8 @@ Game.prototype.moveObjects = function moveObjects() {
   });
 };
 
+Game.prototype.wrap = function wrap(pos) {
+
+}
+
 module.exports = Game;
