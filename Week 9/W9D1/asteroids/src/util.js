@@ -9,10 +9,7 @@ const Util = {
   },
   scale(vec, m) {
     return [vec[0] * m, vec[1] * m];
-  },
-  // wrap(pos) {
-
-  // }
+  }
 };
 
 module.exports = Util;
