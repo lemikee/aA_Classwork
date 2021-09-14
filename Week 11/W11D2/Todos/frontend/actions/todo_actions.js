@@ -17,8 +17,6 @@ export const removeTodo = todo => ({
     todo,
 });
 
-
-
 // const initialState = {
 //     1: {
 //       id: 1,

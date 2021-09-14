@@ -18,6 +18,7 @@ const initialState = {
 const todosReducer = (state = initialState, action) => {
   Object.freeze(state);
   const newState = Object.assign({}, state);
+  
   switch (action.type) { // taking arr data and making example in todo_actions
     case RECEIVE_TODOS:
       action.todos.forEach(todo => {
