@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const store = configureStore();
   window.recieveTodo = recieveTodo;
-  window.recieveTodo = recieveTodo;
+  window.recieveTodos = recieveTodos;
   window.store = store;
   console.log("Welcome to your todo list!");
 });
