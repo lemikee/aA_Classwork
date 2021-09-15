@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
   window.receiveSteps = receiveSteps;
   window.receiveStep = receiveStep;
   window.removeStep = removeStep;
-  window.allTodos = allTodos; 
+  window.allTodos = allTodos;
 
   const main = document.getElementById('main');
   ReactDOM.render(<Root store={store}/>, main);
-
+  
   console.log("Welcome to your todo list!");
 });
 
