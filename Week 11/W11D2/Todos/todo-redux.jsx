@@ -5,7 +5,7 @@ import { receiveTodo, receiveTodos, removeTodo } from "./frontend/actions/todo_a
 import { receiveStep, receiveSteps, removeStep } from "./frontend/actions/step_actions";
 import App from "./frontend/components/app";
 import Root from './frontend/components/root';
-
+import allTodos from './frontend/reducers/selectors'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.receiveSteps = receiveSteps;
   window.receiveStep = receiveStep;
   window.removeStep = removeStep;
+  window.allTodos = allTodos; 
 
   const main = document.getElementById('main');
   ReactDOM.render(<Root store={store}/>, main);
