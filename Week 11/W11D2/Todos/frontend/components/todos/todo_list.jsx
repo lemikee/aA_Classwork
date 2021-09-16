@@ -1,16 +1,31 @@
 import React from 'react'
-import TodoListContainer from './todo_list_container'
 import TodoListItem from './todo_list_item'
-import { connect } from 'react-redux'
+import TodoForm from './todo_form'
 
-export default () => <h3>Todo List goes here!</h3>
+
 
 class TodoList extends React.Component {
-  
+  render() {
+    const { todos, receiveTodo } = this.props;
+    const todoItems = todos.map((todo) => (
+        <TodoListItem 
+        key={`todo-list-item${todo.id}`}
+        todo={todo}
+        receiveTodo={ receiveTodo }
+        />
+    ))
+
+    return (
+        <div>
+            <ol className="todo-list">
+                { todoItems }
+            </ol>
+
+            <TodoForm receiveTodo={receiveTodo} />
+        </div>
+    )
+  }
 }
 
-// const TodoList = () => {
-//   return (
-//     TodoListItem)
+export default TodoList
 
-// }
