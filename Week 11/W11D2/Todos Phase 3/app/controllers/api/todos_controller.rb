@@ -1,4 +1,4 @@
-class TodosController < ApplicationController
+class Api::TodosController < ApplicationController
   def show
     render json: Todo.find_by(params[:id])
   end
@@ -18,12 +18,7 @@ class TodosController < ApplicationController
   end
   
   def update
-    # find user we want to update
-    # if todo we found.update(todo_params)
-    #   render something
-    # else
-    #   render errors
-    # end
+   
 
     @todo = Todo.find_by(params[:id])
 
@@ -32,13 +27,10 @@ class TodosController < ApplicationController
     else
       render json: @todo.errors.full_messages, status: 422
       end
-    end
   end
 
   def destroy
-    # find the user we want to destroy
-    # use active record methods - #destroy on the user we want to destrou
-    # render json: user we destroyed
+  
 
     @todo = Todo.find_by(params[:id])
     @todo.destroy
